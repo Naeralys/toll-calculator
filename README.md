@@ -1,4 +1,4 @@
-#Toll Calculator
+# Toll Calculator
 A calculator for vehicle toll fees, based on an open technical assessment by [EvolveTechnology](https://github.com/EvolveTechnology/toll-calculator/)
 
 ## Background
