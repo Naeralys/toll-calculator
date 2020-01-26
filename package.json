@@ -5,12 +5,16 @@
 	"main": "dist/index.js",
 	"scripts": {
 		"start": "tsc && node dist/index.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "jest"
 	},
 	"author": "Adam Lind",
 	"license": "ISC",
 	"devDependencies": {
 		"tslint": "^5.12.1",
 		"typescript": "^3.3.3"
+	},
+	"dependencies": {
+		"@types/jest": "^24.9.1",
+		"jest": "^25.1.0"
 	}
 }
