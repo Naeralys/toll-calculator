@@ -1,5 +1,6 @@
-# Toll Calculator
-A calculator for vehicle toll fees, based on an open technical assessment by [EvolveTechnology](https://github.com/EvolveTechnology/toll-calculator/)
+# Toll Calculator [![Build Status](https://travis-ci.org/Naeralys/toll-calculator.svg?branch=develop)](https://travis-ci.org/Naeralys/toll-calculator)
+A calculator for vehicle toll fees, based on an open technical assessment by [EvolveTechnology](https://github.com/EvolveTechnology/toll-calculator/).
+Based on a Node/Typescript environment.
 
 ## Background
 Our city has decided to implement toll fees in order to reduce traffic congestion during rush hours.
