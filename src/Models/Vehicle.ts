@@ -1,4 +1,5 @@
 import { VehicleType } from "../Types/Vehicle"
+import DateTime from "./DateTime"
 
 export default class {
 	constructor(private vehicleType: VehicleType) {}
@@ -7,4 +8,5 @@ export default class {
 			? true
 			: false
 	public type = (): VehicleType => this.vehicleType
+	public toll = (fee: number, dateTimeInHourly: number) => {}
 }
