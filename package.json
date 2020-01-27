@@ -11,6 +11,7 @@
 	"author": "Adam Lind",
 	"license": "ISC",
 	"devDependencies": {
+		"ts-jest": "^25.0.0",
 		"tslint": "^5.12.1",
 		"typescript": "^3.3.3"
 	},
