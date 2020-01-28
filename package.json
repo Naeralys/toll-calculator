@@ -4,13 +4,20 @@
 	"description": "",
 	"main": "dist/index.js",
 	"scripts": {
+		"build": "npm i && tsc",
 		"start": "tsc && node dist/index.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "jest"
 	},
 	"author": "Adam Lind",
 	"license": "ISC",
 	"devDependencies": {
+		"ts-jest": "^25.0.0",
 		"tslint": "^5.12.1",
-		"typescript": "^3.3.3"
+		"typescript": "^3.3.3",
+		"jest": "^25.1.0"
+	},
+	"dependencies": {
+		"@types/jest": "^24.9.1",
+		"jest": "^25.1.0"
 	}
 }
