@@ -1,4 +1,4 @@
-import { TimeGrading } from "../Types/TimeGrading"
+import { TimeGrading } from "../Types"
 export default class DateTime extends Date {
 	constructor(private date: Date) {
 		super(date)

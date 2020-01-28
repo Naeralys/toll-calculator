@@ -1,5 +1,5 @@
 import Vehicle from "../../src/Models/Vehicle"
-import { VehicleType } from "../../src/Types/Vehicle"
+import { VehicleType } from "../../src/Types"
 
 describe("vehicle", () => {
 	const vehicle: Vehicle = new Vehicle(VehicleType.Car)

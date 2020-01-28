@@ -1,6 +1,6 @@
 import DateTime from "../Models/DateTime"
 import Vehicle from "../Models/Vehicle"
-import { TimeGrading } from "../Types/TimeGrading"
+import { TimeGrading } from "../Types"
 import HolidayService from "./HolidayService"
 
 export default class {

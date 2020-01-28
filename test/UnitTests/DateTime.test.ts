@@ -1,5 +1,5 @@
 import DateTime from "../../src/Models/DateTime"
-import { TimeGrading } from "../../src/Types/TimeGrading"
+import { TimeGrading } from "../../src/Types"
 
 describe("dateTime", () => {
 	const dateTime = new DateTime(new Date(2020, 2, 2, 9, 0, 0))
