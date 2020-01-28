@@ -5,7 +5,8 @@ export default class DateTime extends Date {
 	}
 	public getHourlyTimeType = () => {
 		const hour = this.date.getHours()
-		if (hour > 7 && hour < 10) return TimeGrading.High
+		if ((hour >= 7 && hour < 10) || (hour >= 16 && hour < 18)) return TimeGrading.High
+		if ((hour >= 10 && hour < 11) || (hour >= 15 && hour < 19)) return TimeGrading.Middle
 		return TimeGrading.Low
 	}
 }
