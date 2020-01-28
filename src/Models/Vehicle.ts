@@ -1,4 +1,4 @@
-import { VehicleType } from "../Types/Vehicle"
+import { VehicleType } from "../Types"
 import DateTime from "./DateTime"
 
 export default class {
@@ -9,5 +9,5 @@ export default class {
 			? true
 			: false
 	public getVehicleType = (): VehicleType => this.vehicleType
-	public toll = (fee: number, dateTimeInHourly: number) => {}
+	public toll = (fee: number, dateTimeInHourly: number) => fee
 }
