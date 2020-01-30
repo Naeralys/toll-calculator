@@ -6,7 +6,7 @@ import HolidayService from "./HolidayService"
 export default class {
 	constructor(private holidays: HolidayService) {}
 
-	public ChargeTollFee = (vehicle: Vehicle, date: DateTime) => {
+	public calculateTollFee = (vehicle: Vehicle, date: DateTime) => {
 		if (vehicle.isEnvironmental()) return 0
 		if (this.holidays.isHoliday(date)) return 0
 		return this.getTimeGrading(date)
