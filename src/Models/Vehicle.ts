@@ -1,3 +1,4 @@
+import { isWithinSameDay, isWithinSameHour } from "../Services/CalculatorService"
 import { VehicleType } from "../Types"
 import DateTime from "./DateTime"
 
@@ -10,28 +11,19 @@ export default class {
 	public getVehicleType = (): VehicleType => this.vehicleType
 	public getCurrentFee = (): number => this.currentFee
 	public toll = (fee: number, date: DateTime) => {
-		// If not within the same day
-		if (this.latestTollTime.getDate() !== date.getDate()) {
+		if (!isWithinSameDay(this.latestTollTime, date)) {
 			this.latestTollTime = date
 			this.currentFee = fee
 			return this.getCurrentFee()
 		}
-
-		// If within the same hour
-		const HOUR = 1000 * 60 * 60
-		const anHourAgo = date.getTime() - HOUR
-
-		if (this.latestTollTime.getTime() > anHourAgo) {
+		if (isWithinSameHour(this.latestTollTime, date)) {
 			if (fee > this.currentFee) this.currentFee = fee
 		} else this.latestTollTime = date
-
-		// If within the same day
-		if (this.latestTollTime.getDate() === date.getDate()) {
+		if (isWithinSameDay(this.latestTollTime, date)) {
 			if (this.currentFee + fee > 60) {
 				this.currentFee = 60
 			}
 		}
-
 		return this.getCurrentFee()
 	}
 }

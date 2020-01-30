@@ -5,13 +5,11 @@ import HolidayService from "./HolidayService"
 
 export default class {
 	constructor(private holidays: HolidayService) {}
-
 	public calculateTollFee = (vehicle: Vehicle, date: DateTime) => {
 		if (vehicle.isEnvironmental()) return 0
 		if (this.holidays.isHoliday(date)) return 0
 		return this.getTimeGrading(date)
 	}
-
 	private getTimeGrading = (date: DateTime) => {
 		switch (date.getHourlyTimeType()) {
 			case TimeGrading.Low:
