@@ -1,7 +1,6 @@
 import { DateTime } from "../../src/Models"
 import { Car } from "../../src/Models/Vehicles"
 import { HolidayService, TollService } from "../../src/Services"
-import { VehicleType } from "../../src/Types"
 
 describe("toll regular car type", () => {
 	const vehicle = new Car()
