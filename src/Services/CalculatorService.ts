@@ -1,3 +1,4 @@
+import { FEE_TIME_GRADING } from "../config"
 import DateTime from "../Models/DateTime"
 import { TimeGrading } from "../Types"
 
@@ -10,10 +11,10 @@ export const isWithinSameHour = (currentTime: DateTime, previousHour: DateTime) 
 export const getFeeFromTimeGrading = (date: DateTime) => {
 	switch (date.getHourlyTimeType()) {
 		case TimeGrading.Low:
-			return 8
+			return FEE_TIME_GRADING.LOW
 		case TimeGrading.Middle:
-			return 12
+			return FEE_TIME_GRADING.MIDDLE
 		case TimeGrading.High:
-			return 18
+			return FEE_TIME_GRADING.HIGH
 	}
 }
