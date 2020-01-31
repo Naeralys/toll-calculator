@@ -1,23 +1,34 @@
 import DateTime from "../Models/DateTime"
 import Vehicle from "../Models/Vehicle"
-import { TimeGrading } from "../Types"
+import { getFeeFromTimeGrading, isWithinSameDay } from "./CalculatorService"
 import HolidayService from "./HolidayService"
 
 export default class {
 	constructor(private holidays: HolidayService) {}
-	public calculateTollFee = (vehicle: Vehicle, date: DateTime) => {
-		if (vehicle.isEnvironmental()) return 0
+	public calculateTollFee = (vehicle: Vehicle, date: DateTime): number => {
+		if (vehicle.isTollFree()) return 0
 		if (this.holidays.isHoliday(date)) return 0
-		return this.getTimeGrading(date)
-	}
-	private getTimeGrading = (date: DateTime) => {
-		switch (date.getHourlyTimeType()) {
-			case TimeGrading.Low:
-				return 8
-			case TimeGrading.Middle:
-				return 12
-			case TimeGrading.High:
-				return 18
+
+		const fee = getFeeFromTimeGrading(date)
+		if (isWithinSameDay(vehicle.getLatestTollTime(), date)) {
+			if (vehicle.getCurrentFee() + fee > 60) {
+				return 60
+			}
 		}
+		return fee
 	}
+
+	/*
+	 * TODO: Implement the actual charging service
+	 */
+
+	// public chargeTollFee = (vehicle: Vehicle, fee: number, date: DateTime) => {
+	// 	if (isWithinSameHour(vehicle.getLatestTollTime(), date)) {
+	// 		if (fee > vehicle.getCurrentFee()) {
+	// 			vehicle.setCurrentFee(fee)
+	// 		}
+	// 	} else {
+	// 		vehicle.setNewLatestTollTime(date)
+	// 	}
+	// }
 }

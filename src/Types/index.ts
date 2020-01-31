@@ -6,5 +6,6 @@ export enum TimeGrading {
 export enum VehicleType {
 	Car,
 	Environmental,
-	Electric
+	Electric,
+	Motorcycle
 }
