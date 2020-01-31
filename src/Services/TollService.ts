@@ -1,3 +1,4 @@
+import { MAX_DAILY_TOLL_FEE } from "../config"
 import DateTime from "../Models/DateTime"
 import Vehicle from "../Models/Vehicle"
 import { getFeeFromTimeGrading, isWithinSameDay } from "./CalculatorService"
@@ -11,8 +12,8 @@ export default class {
 
 		const fee = getFeeFromTimeGrading(date)
 		if (isWithinSameDay(vehicle.getLatestTollTime(), date)) {
-			if (vehicle.getCurrentFee() + fee > 60) {
-				return 60
+			if (vehicle.getCurrentFee() + fee > MAX_DAILY_TOLL_FEE) {
+				return MAX_DAILY_TOLL_FEE
 			}
 		}
 		return fee
