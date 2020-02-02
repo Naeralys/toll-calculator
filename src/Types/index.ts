@@ -1,3 +1,6 @@
+import DateTime from "../Models/DateTime"
+import Vehicle from "../Models/Vehicle"
+
 export enum TimeGrading {
 	Low,
 	Middle,
@@ -8,4 +11,9 @@ export enum VehicleType {
 	Environmental,
 	Electric,
 	Motorcycle
+}
+export interface TolledVehicleRecord {
+	vehicle: Vehicle
+	date: DateTime
+	fee: number
 }
