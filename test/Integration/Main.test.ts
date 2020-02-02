@@ -22,9 +22,7 @@ describe("toll regular car type", () => {
 		expect(fee).toBe(18)
 	})
 	it("calculate toll fee for max fee limit", () => {
-		vehicle.setCurrentFee(65)
-		vehicle.setNewLatestTollTime(date)
-		const fee = tollService.calculateTollFee(vehicle, date)
+		let fee = tollService.calculateTollFee(vehicle, date)
 		expect(fee).toBe(60)
 	})
 })
