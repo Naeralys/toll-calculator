@@ -15,8 +15,8 @@ export default class implements ITolledVehicleRecordService {
 
 	public hasReachedDailyCap = (fee: number): boolean => {
 		const totalDailyFees: number = this.tolledVehicleRecords.reduce(
-			currentRecord => (fee = currentRecord),
-			fee
+			(dailyFee, currentRecord) => dailyFee + currentRecord.fee,
+			0
 		)
 		return totalDailyFees + fee > MAX_DAILY_TOLL_FEE
 	}
