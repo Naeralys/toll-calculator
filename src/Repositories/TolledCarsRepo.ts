@@ -15,7 +15,7 @@ export default class extends Repository<TolledVehicleRecord> implements ITolledC
 				if (currentRecord.date === date && currentRecord.vehicle === vehicle)
 					return currentRecord
 			})
-			return dailyCarRecords
+			if (dailyCarRecords[0]) return dailyCarRecords
 		}
 		return null
 	}
