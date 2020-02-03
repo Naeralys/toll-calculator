@@ -12,7 +12,10 @@ export default class extends Repository<TolledVehicleRecord> implements ITolledC
 		const records = this.getAll()
 		if (records) {
 			const dailyCarRecords = records.map(currentRecord => {
-				if (currentRecord.date === date && currentRecord.vehicle === vehicle)
+				if (
+					currentRecord.date.getDayMonthYear() === date.getDayMonthYear() &&
+					currentRecord.vehicle === vehicle
+				)
 					return currentRecord
 			})
 			if (dailyCarRecords[0]) return dailyCarRecords

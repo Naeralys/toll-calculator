@@ -9,4 +9,7 @@ export default class DateTime extends Date {
 		if ((hour >= 10 && hour < 11) || (hour >= 15 && hour < 19)) return TimeGrading.Middle
 		return TimeGrading.Low
 	}
+	public getDayMonthYear = () =>
+		this.date.getDay() + ", " + this.date.getMonth() + ", " + this.date.getFullYear()
+	public getDayMonth = () => this.date.getDay() + ", " + this.date.getMonth()
 }

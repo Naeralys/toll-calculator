@@ -25,26 +25,17 @@ describe("toll regular car type", () => {
 	})
 	it("calculate toll fee for max fee limit", () => {
 		const tollService = new TollService(holidays)
-		let fee = tollService.calculateTollFee(vehicle, date)
-		fee = fee + tollService.calculateTollFee(vehicle, date)
-		fee =
-			fee +
-			tollService.calculateTollFee(vehicle, new DateTime(new Date(2020, 2, 3, 1, 0, 0, 0)))
-		fee =
-			fee +
-			tollService.calculateTollFee(vehicle, new DateTime(new Date(2020, 2, 3, 2, 0, 0, 0)))
-		fee =
-			fee +
-			tollService.calculateTollFee(vehicle, new DateTime(new Date(2020, 2, 3, 3, 0, 0, 0)))
-		fee =
-			fee +
-			tollService.calculateTollFee(vehicle, new DateTime(new Date(2020, 2, 3, 4, 0, 0, 0)))
-		fee =
-			fee +
-			tollService.calculateTollFee(vehicle, new DateTime(new Date(2020, 2, 3, 5, 0, 0, 0)))
-		fee =
-			fee +
-			tollService.calculateTollFee(vehicle, new DateTime(new Date(2020, 2, 3, 6, 0, 0, 0)))
-		expect(fee).toBe(60)
+		tollService.calculateTollFee(vehicle, date)
+		tollService.calculateTollFee(vehicle, new DateTime(new Date(2020, 2, 3, 1, 0, 0, 0)))
+		tollService.calculateTollFee(vehicle, new DateTime(new Date(2020, 2, 3, 2, 0, 0, 0)))
+		tollService.calculateTollFee(vehicle, new DateTime(new Date(2020, 2, 3, 3, 0, 0, 0)))
+		tollService.calculateTollFee(vehicle, new DateTime(new Date(2020, 2, 3, 4, 0, 0, 0)))
+		tollService.calculateTollFee(vehicle, new DateTime(new Date(2020, 2, 3, 5, 0, 0, 0)))
+		tollService.calculateTollFee(vehicle, new DateTime(new Date(2020, 2, 3, 6, 0, 0, 0)))
+		const fee = tollService.calculateTollFee(
+			vehicle,
+			new DateTime(new Date(2020, 2, 3, 7, 0, 0, 0))
+		)
+		expect(fee).toBe(0)
 	})
 })
