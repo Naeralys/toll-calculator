@@ -20,5 +20,15 @@ export default class implements ITolledVehicleRecordService {
 		)
 		return totalDailyFees + fee > MAX_DAILY_TOLL_FEE
 	}
-	public getHighestHourlyFee = (fee: number, date: DateTime) => 0
+	public getHighestHourlyFee = (fee: number, date: DateTime) => {
+		const highestHourlyFee = this.tolledVehicleRecords.reduce(
+			(accumulatedValue, currentRecord) => {
+				if (isWithinSameHour(currentRecord.date, date))
+					if (accumulatedValue > currentRecord.fee) accumulatedValue = currentRecord.fee
+				return accumulatedValue
+			},
+			0
+		)
+		return fee > highestHourlyFee ? fee - highestHourlyFee : 0
+	}
 }

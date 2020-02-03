@@ -22,18 +22,20 @@ export default class implements ITollService {
 		)
 
 		let fee = getFeeFromTimeGrading(date)
-		this.tolledCarsRepo.addTolledVehicle(vehicle, date, fee)
 
 		if (tolledVehicleRecords) {
 			const tolledCarRecordService = new TolledCarRecordService(tolledVehicleRecords)
 			if (tolledCarRecordService.isWithinSameDay(date)) {
-				if (tolledCarRecordService.hasReachedDailyCap(fee)) fee = MAX_DAILY_TOLL_FEE
+				if (tolledCarRecordService.hasReachedDailyCap(fee)) fee = 0
 				else {
 					if (tolledCarRecordService.isWithinSameHour(date))
 						fee = tolledCarRecordService.getHighestHourlyFee(fee, date)
 				}
 			}
 		}
+
+		this.tolledCarsRepo.addTolledVehicle(vehicle, date, fee)
+
 		return fee
 	}
 }
