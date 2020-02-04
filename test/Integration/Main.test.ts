@@ -2,7 +2,7 @@ import { DateTime } from "../../src/Models"
 import { Car } from "../../src/Models/Vehicles"
 import { HolidayService, TollService } from "../../src/Services"
 
-describe("toll regular car type", () => {
+describe("calculate fee using tollservice", () => {
 	const vehicle = new Car()
 	const holiday = new DateTime(new Date(2020, 2, 2, 10, 0, 0, 0))
 	const holidays = new HolidayService([holiday])
@@ -37,5 +37,14 @@ describe("toll regular car type", () => {
 			new DateTime(new Date(2020, 2, 3, 7, 0, 0, 0))
 		)
 		expect(fee).toBe(0)
+	})
+	it("calculate max toll fee within an hour", () => {
+		const tollService = new TollService(holidays)
+		tollService.calculateTollFee(vehicle, new DateTime(new Date(2020, 2, 3, 7, 50, 0, 0)))
+		const fee = tollService.calculateTollFee(
+			vehicle,
+			new DateTime(new Date(2020, 2, 3, 8, 40, 0, 0))
+		)
+		expect(fee).toBe(18)
 	})
 })
