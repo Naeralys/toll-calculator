@@ -38,4 +38,5 @@ export default class implements ITollService {
 
 		return fee
 	}
+	public holidayService = () => this.holidays
 }
